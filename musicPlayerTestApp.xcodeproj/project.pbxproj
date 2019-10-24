@@ -15,6 +15,7 @@
 		8437FD7523608EFC007CCA83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437FD7323608EFC007CCA83 /* LaunchScreen.storyboard */; };
 		8462F15323609942002C5780 /* SwiftAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8462F15223609942002C5780 /* SwiftAudio.framework */; };
 		8462F15423609942002C5780 /* SwiftAudio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8462F15223609942002C5780 /* SwiftAudio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84F6A5B82361E726002808DE /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6A5B72361E726002808DE /* MusicPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,7 @@
 		8437FD7423608EFC007CCA83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8437FD7623608EFC007CCA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8462F15223609942002C5780 /* SwiftAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAudio.framework; path = Carthage/Build/iOS/SwiftAudio.framework; sourceTree = "<group>"; };
+		84F6A5B72361E726002808DE /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				8437FD6823608EF9007CCA83 /* AppDelegate.swift */,
 				8437FD6A23608EF9007CCA83 /* SceneDelegate.swift */,
 				8437FD6C23608EF9007CCA83 /* ViewController.swift */,
+				84F6A5B72361E726002808DE /* MusicPlayer.swift */,
 				8437FD6E23608EF9007CCA83 /* Main.storyboard */,
 				8437FD7123608EFC007CCA83 /* Assets.xcassets */,
 				8437FD7323608EFC007CCA83 /* LaunchScreen.storyboard */,
@@ -190,6 +193,7 @@
 			files = (
 				8437FD6D23608EF9007CCA83 /* ViewController.swift in Sources */,
 				8437FD6923608EF9007CCA83 /* AppDelegate.swift in Sources */,
+				84F6A5B82361E726002808DE /* MusicPlayer.swift in Sources */,
 				8437FD6B23608EF9007CCA83 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
