@@ -15,6 +15,7 @@ class MusicPlayer {
     func initPlayer(url : String) {
         guard let url = URL.init(string: url) else { return }
         let playerItem = AVPlayerItem.init(url: url)
+        let volume = AVAudioSession.sharedInstance().outputVolume
         player = AVPlayer.init(playerItem: playerItem)
         playAudioBackground()
     }

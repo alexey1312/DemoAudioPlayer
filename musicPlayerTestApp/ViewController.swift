@@ -23,8 +23,14 @@ class ViewController: UIViewController {
     let imageStop = UIImage(#imageLiteral(resourceName: "ic_stop_48px")).withTintColor(.black)
     
     //buttons
-    let buttonPlay = UIButton(frame: CGRect(x: 75, y: 300, width: 75, height: 75))
-    let buttonStop = UIButton(frame: CGRect(x: 200, y: 300, width: 75, height: 75))
+    let buttonPlay = UIButton(frame: CGRect(x: 90, y: 300, width: 75, height: 75))
+    let buttonStop = UIButton(frame: CGRect(x: 220, y: 300, width: 75, height: 75))
+    
+    //text volume
+    let textLabel = UITextView(frame: CGRect(x: 155, y: 380, width: 200, height: 75))
+    
+    //volume slider
+    let volumeSlider = UISlider(frame: CGRect(x: 90, y: 400, width: 200, height: 75))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +48,16 @@ class ViewController: UIViewController {
         buttonStop.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         buttonStop.addTarget(self, action: #selector(buttonActionStop), for: .touchUpInside)
         self.view.addSubview(buttonStop)
+        
+        textLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textLabel.text = "Volume 30%"
+        self.view.addSubview(textLabel)
+        
+        volumeSlider.minimumValue = 0
+        volumeSlider.maximumValue = 100
+        volumeSlider.setValue(30, animated: true)
+        volumeSlider.addTarget(self, action: #selector(SliderActionVolume), for: .allTouchEvents)
+        self.view.addSubview(volumeSlider)
     }
     
     @objc func buttonActionPlayOrPause(sender: UIButton!) {
@@ -69,5 +85,10 @@ class ViewController: UIViewController {
             button = true
             buttonPlay.setBackgroundImage(imagePlay, for: .normal)
         }
+    }
+    
+    @objc func SliderActionVolume(sender: UISlider!) {
+        player.player.volume = volumeSlider.value
+        textLabel.text = "Volume \(Int(volumeSlider.value))%"
     }
 }
