@@ -12,30 +12,55 @@ import AVFoundation
 class ViewController: UIViewController {
     
     var player = MusicPlayer()
+    
     //let URL
     let tasteURL = "https://ia802508.us.archive.org/5/items/testmp3testfile/mpthreetest.mp3"
     
+    //True or false metod
     var button = true
+    
+    //Timer for tracking the progress
+    var timer: Timer? = nil
     
     //image buttons
     let imagePlay = UIImage(#imageLiteral(resourceName: "ic_play_arrow_48px")).withTintColor(.black)
     let imagePause = UIImage(#imageLiteral(resourceName: "ic_pause_circle_outline_48px")).withTintColor(.black)
     let imageStop = UIImage(#imageLiteral(resourceName: "ic_stop_48px")).withTintColor(.black)
     
+    //text progress
+    let textLabelProgress = UITextView(frame: CGRect(x: 165, y: 250, width: 200, height: 75))
+    
+    //progress bar
+    let progressBar = UIProgressView(frame: CGRect(x: 90, y: 280, width: 200, height: 75))
+    
     //buttons
     let buttonPlay = UIButton(frame: CGRect(x: 90, y: 300, width: 75, height: 75))
     let buttonStop = UIButton(frame: CGRect(x: 220, y: 300, width: 75, height: 75))
     
     //text volume
-    let textLabel = UITextView(frame: CGRect(x: 155, y: 380, width: 200, height: 75))
+    let textLabelVolume = UITextView(frame: CGRect(x: 155, y: 380, width: 200, height: 75))
     
     //volume slider
     let volumeSlider = UISlider(frame: CGRect(x: 90, y: 400, width: 200, height: 75))
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         player.initPlayer(url: tasteURL)
+        
+        textLabelProgress.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textLabelProgress.text = "Value 0%"
+        
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            self.progressBar.progress = Float(CMTimeGetSeconds(self.player.player.currentTime()) * 60 / 100)
+            
+            self.textLabelProgress.text = "Value \((Int(CMTimeGetSeconds(self.player.player.currentTime()))))%"
+        }
+        
+        self.view.addSubview(textLabelProgress)
+        self.view.addSubview(progressBar)
         
         buttonPlay.setBackgroundImage(imagePlay, for: .normal)
         buttonPlay.setTitleColor(.black, for: .normal)
@@ -49,9 +74,9 @@ class ViewController: UIViewController {
         buttonStop.addTarget(self, action: #selector(buttonActionStop), for: .touchUpInside)
         self.view.addSubview(buttonStop)
         
-        textLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        textLabel.text = "Volume 30%"
-        self.view.addSubview(textLabel)
+        textLabelVolume.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textLabelVolume.text = "Volume 30%"
+        self.view.addSubview(textLabelVolume)
         
         volumeSlider.minimumValue = 0
         volumeSlider.maximumValue = 100
@@ -77,6 +102,7 @@ class ViewController: UIViewController {
         print("buttonActionStop tapped")
         player.stop()
         player.pause()
+        player.player.seek(to: CMTime.zero)
         
         button = false
         if button {
@@ -89,6 +115,6 @@ class ViewController: UIViewController {
     
     @objc func SliderActionVolume(sender: UISlider!) {
         player.player.volume = volumeSlider.value
-        textLabel.text = "Volume \(Int(volumeSlider.value))%"
+        textLabelVolume.text = "Volume \(Int(volumeSlider.value))%"
     }
 }
