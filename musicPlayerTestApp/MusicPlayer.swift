@@ -1,5 +1,5 @@
 //
-//  MusicPlayer.swift
+//  Player.swift
 //  musicPlayerTestApp
 //
 //  Created by Admin on 24.10.2019.
@@ -31,6 +31,13 @@ class MusicPlayer {
         }
     }
     
+    func availableDuration() -> CMTime {
+        if let range = player.currentItem?.loadedTimeRanges.first {
+            return CMTimeRangeGetEnd(range.timeRangeValue)
+        }
+        return .zero
+    }
+    
     func pause(){
         player.pause()
     }
@@ -41,6 +48,10 @@ class MusicPlayer {
     
     func stop() {
         player.seek(to: CMTime.zero)
+    }
+    
+    func muted() {
+        player.isMuted = true
     }
 }
 

@@ -15,6 +15,7 @@
 		8437FD7523608EFC007CCA83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437FD7323608EFC007CCA83 /* LaunchScreen.storyboard */; };
 		8462F15323609942002C5780 /* SwiftAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8462F15223609942002C5780 /* SwiftAudio.framework */; };
 		8462F15423609942002C5780 /* SwiftAudio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8462F15223609942002C5780 /* SwiftAudio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		846821AA2364690A008A00F6 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846821A92364690A008A00F6 /* SnapKit.framework */; };
 		84F6A5B82361E726002808DE /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6A5B72361E726002808DE /* MusicPlayer.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		8437FD7423608EFC007CCA83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8437FD7623608EFC007CCA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8462F15223609942002C5780 /* SwiftAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAudio.framework; path = Carthage/Build/iOS/SwiftAudio.framework; sourceTree = "<group>"; };
+		846821A92364690A008A00F6 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		84F6A5B72361E726002808DE /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8462F15323609942002C5780 /* SwiftAudio.framework in Frameworks */,
+				846821AA2364690A008A00F6 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +95,7 @@
 		8462F15123609942002C5780 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				846821A92364690A008A00F6 /* SnapKit.framework */,
 				8462F15223609942002C5780 /* SwiftAudio.framework */,
 			);
 			name = Frameworks;
@@ -175,6 +179,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftAudio.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			outputFileListPaths = (
 			);
