@@ -19,36 +19,41 @@ class ViewController: UIViewController {
     let tasteURL = "https://ia802508.us.archive.org/5/items/testmp3testfile/mpthreetest.mp3"
     
     //True or false metod
-    var button = true
+    var buttonPlayTriger = true
+    
+    //True or false metod
+    var buttonMuteTriger = false
     
     //Timer for tracking the progress
     var timer: Timer? = nil
     
     //image buttons
     let imagePlay = UIImage(#imageLiteral(resourceName: "ic_play_arrow_48px")).withTintColor(.black)
-    let imagePause = UIImage(#imageLiteral(resourceName: "ic_pause_circle_outline_48px")).withTintColor(.black)
+    let imagePause = UIImage(#imageLiteral(resourceName: "ic_pause_48px")).withTintColor(.black)
     let imageStop = UIImage(#imageLiteral(resourceName: "ic_stop_48px")).withTintColor(.black)
+    let imageVolumeUP = UIImage(#imageLiteral(resourceName: "ic_volume_up_48px")).withTintColor(.black)
+    let imageVolumeDOWN = UIImage(#imageLiteral(resourceName: "ic_volume_off_48px")).withTintColor(.black)
     
     //texr field
     let textField = UITextField(frame: CGRect(x: 25, y: 100, width: 325, height: 50))
     
     //text progress
-    let textLabelProgress = UITextView(frame: CGRect(x: 165, y: 250, width: 200, height: 75))
+    let textLabelProgress = UITextView(frame: CGRect(x: 170, y: 250, width: 200, height: 75))
     
     //progress bar
     let progressBar = UIProgressView(frame: CGRect(x: 90, y: 280, width: 200, height: 75))
     
     //buttons
-    let buttonPlay = UIButton(frame: CGRect(x: 90, y: 300, width: 75, height: 75))
+    let buttonPlayOrPause = UIButton(frame: CGRect(x: 90, y: 300, width: 75, height: 75))
     let buttonStop = UIButton(frame: CGRect(x: 220, y: 300, width: 75, height: 75))
+    let buttonMute = UIButton(frame: CGRect(x: 150, y: 470, width: 75, height: 75))
     
     //text volume
     let textLabelVolume = UITextView(frame: CGRect(x: 155, y: 380, width: 200, height: 75))
     
     //volume slider
     let volumeSlider = UISlider(frame: CGRect(x: 90, y: 400, width: 200, height: 75))
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,22 +70,21 @@ class ViewController: UIViewController {
         
         textLabelProgress.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textLabelProgress.text = "0 : 0"
-                
+
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             
             self.progressBar.progress = Float(CMTimeGetSeconds(self.player.player.currentTime()) / CMTimeGetSeconds(self.player.availableDuration()))
-            
             self.textLabelProgress.text = "\(Int(CMTimeGetSeconds(self.player.player.currentTime()))) : \(Int(CMTimeGetSeconds(self.player.availableDuration())))"
         }
-        
+    
         self.view.addSubview(textLabelProgress)
         self.view.addSubview(progressBar)
         
-        buttonPlay.setBackgroundImage(imagePlay, for: .normal)
-        buttonPlay.setTitleColor(.black, for: .normal)
-        buttonPlay.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
-        buttonPlay.addTarget(self, action: #selector(buttonActionPlayOrPause), for: .touchUpInside)
-        self.view.addSubview(buttonPlay)
+        buttonPlayOrPause.setBackgroundImage(imagePlay, for: .normal)
+        buttonPlayOrPause.setTitleColor(.black, for: .normal)
+        buttonPlayOrPause.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        buttonPlayOrPause.addTarget(self, action: #selector(buttonActionPlayOrPause), for: .touchUpInside)
+        self.view.addSubview(buttonPlayOrPause)
         
         buttonStop.setBackgroundImage(imageStop, for: .normal)
         buttonStop.setTitleColor(.black, for: .normal)
@@ -88,36 +92,50 @@ class ViewController: UIViewController {
         buttonStop.addTarget(self, action: #selector(buttonActionStop), for: .touchUpInside)
         self.view.addSubview(buttonStop)
         
+        buttonMute.setBackgroundImage(imageVolumeUP, for: .normal)
+        buttonMute.setTitleColor(.black, for: .normal)
+        buttonMute.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        buttonMute.addTarget(self, action: #selector(buttonMuteAction), for: .touchUpInside)
+        self.view.addSubview(buttonMute)
+              
         textLabelVolume.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        textLabelVolume.text = "Volume 30%"
+        textLabelVolume.text = "Volume 15%"
         self.view.addSubview(textLabelVolume)
         
         volumeSlider.minimumValue = 0
         volumeSlider.maximumValue = 100
-        volumeSlider.setValue(30, animated: true)
+        volumeSlider.setValue(15, animated: true)
+        player.player.volume = volumeSlider.value
+        
         volumeSlider.addTarget(self, action: #selector(SliderActionVolume), for: .allTouchEvents)
         self.view.addSubview(volumeSlider)
     }
     
     @objc func buttonActionPlayOrPause(sender: UIButton!) {
         print("buttonActionPlay tapped")
-        button.toggle()
+        
+        buttonPlayTriger.toggle()
         
         let url = textField.text
         
-        if url!.isEmpty {
-            player.initPlayer(url: tasteURL)
-        } else {
-            player.initPlayer(url: url!)
+        func buttonPlayPause() {
+            if buttonPlayTriger {
+                player.pause()
+                buttonPlayOrPause.setBackgroundImage(imagePlay, for: .normal)
+            } else {
+                player.play()
+                buttonPlayOrPause.setBackgroundImage(imagePause, for: .normal)
+            }
         }
         
-        if button {
-            player.pause()
-            buttonPlay.setBackgroundImage(imagePlay, for: .normal)
+        if url!.isEmpty {
+            player.initPlayer(url: tasteURL)
+            buttonPlayPause()
         } else {
-            player.play()
-            buttonPlay.setBackgroundImage(imagePause, for: .normal)
+            player.initPlayer(url: url!)
+            buttonPlayPause()
         }
+        
     }
     
     @objc func buttonActionStop(sender: UIButton!) {
@@ -126,17 +144,39 @@ class ViewController: UIViewController {
         player.pause()
         player.player.seek(to: CMTime.zero)
         
-        button = false
-        if button {
-            buttonPlay.setBackgroundImage(imagePause, for: .normal)
+        buttonPlayTriger = false
+        if buttonPlayTriger {
+            buttonPlayOrPause.setBackgroundImage(imagePause, for: .normal)
         } else {
-            button = true
-            buttonPlay.setBackgroundImage(imagePlay, for: .normal)
+            buttonPlayTriger = true
+            buttonPlayOrPause.setBackgroundImage(imagePlay, for: .normal)
         }
     }
     
     @objc func SliderActionVolume(sender: UISlider!) {
         player.player.volume = volumeSlider.value
         textLabelVolume.text = "Volume \(Int(volumeSlider.value))%"
+        
+        if player.player.volume == 0 {
+            buttonMute.setBackgroundImage(imageVolumeDOWN, for: .normal)
+        } else {
+            buttonMute.setBackgroundImage(imageVolumeUP, for: .normal)
+        }
     }
+    
+    @objc func buttonMuteAction(sender: UIButton!) {
+        print("buttonMute tapped")
+        buttonMuteTriger.toggle()
+        
+        if buttonMuteTriger {
+            buttonMuteTriger = true
+            player.muted()
+            buttonMute.setBackgroundImage(imageVolumeDOWN, for: .normal)
+        } else {
+            buttonMuteTriger = false
+            player.unmuted()
+            buttonMute.setBackgroundImage(imageVolumeUP, for: .normal)
+        }
+    }
+    
 }
