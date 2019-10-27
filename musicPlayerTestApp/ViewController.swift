@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         textField.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
         textField.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textField.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        textField.text = "add your URL mp3"
+        textField.text = "add your URL .mp3"
         textField.borderStyle = .roundedRect
         textField.clearsOnBeginEditing = true
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
@@ -78,12 +78,13 @@ class ViewController: UIViewController {
             make.top.equalTo(view).offset(75)
             make.left.equalTo(view).offset(25)
             make.right.equalTo(view).offset(-25)
-            make.bottom.equalTo(view).offset(-550)
+            make.bottom.equalTo(view).offset(-600)
         }
         
         //init textLabelProgress and progress
         textLabelProgress.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        textLabelProgress.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        textLabelProgress.textAlignment = .center
+        //        textLabelProgress.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         textLabelProgress.text = "0 : 0"
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
@@ -93,11 +94,9 @@ class ViewController: UIViewController {
         
         self.view.addSubview(textLabelProgress)
         textLabelProgress.snp.makeConstraints { (make) in
-            make.size.greaterThanOrEqualTo(textField)
-//            make.top.equalTo(textField).offset(50)
-//            make.left.equalTo(view).offset(200)
-//            make.right.equalTo(view).offset(-200)
-            make.center.equalTo(view)
+            make.size.equalTo(CGSize(width: 150, height: 25))
+            make.centerX.equalTo(view)
+            make.centerY.equalTo(textField).offset(125)
         }
         
         self.view.addSubview(progressBar)
@@ -114,24 +113,48 @@ class ViewController: UIViewController {
         buttonPlayOrPause.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         buttonPlayOrPause.addTarget(self, action: #selector(buttonActionPlayOrPause), for: .touchUpInside)
         self.view.addSubview(buttonPlayOrPause)
+        buttonPlayOrPause.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 50, height: 50))
+            make.centerX.equalTo(view).offset(-75)
+            make.centerY.equalTo(progressBar).offset(100)
+        }
         
-        //init buttonPlayOrPause
+        //init buttonStop
         buttonStop.setBackgroundImage(imageStop, for: .normal)
         buttonStop.setTitleColor(.black, for: .normal)
         buttonStop.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         buttonStop.addTarget(self, action: #selector(buttonActionStop), for: .touchUpInside)
         self.view.addSubview(buttonStop)
+        buttonStop.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 50, height: 50))
+            make.centerX.equalTo(view).offset(75)
+            make.centerY.equalTo(progressBar).offset(100)
+        }
         
+        //init buttonMute
         buttonMute.setBackgroundImage(imageVolumeUP, for: .normal)
         buttonMute.setTitleColor(.black, for: .normal)
         buttonMute.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
         buttonMute.addTarget(self, action: #selector(buttonMuteAction), for: .touchUpInside)
         self.view.addSubview(buttonMute)
+        buttonMute.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 50, height: 50))
+            make.centerX.equalTo(view).offset(0)
+            make.centerY.equalTo(buttonStop).offset(150)
+        }
         
+        //init textLabelVolume
         textLabelVolume.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         textLabelVolume.text = "Volume 15%"
+        textLabelVolume.textAlignment = .center
         self.view.addSubview(textLabelVolume)
+        textLabelVolume.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 150, height: 25))
+            make.centerX.equalTo(view)
+            make.centerY.equalTo(buttonStop).offset(50)
+        }
         
+        //init volumeSlider
         volumeSlider.minimumValue = 0
         volumeSlider.maximumValue = 100
         volumeSlider.setValue(15, animated: true)
@@ -139,6 +162,12 @@ class ViewController: UIViewController {
         
         volumeSlider.addTarget(self, action: #selector(SliderActionVolume), for: .allTouchEvents)
         self.view.addSubview(volumeSlider)
+        volumeSlider.snp.makeConstraints { (make) in
+            make.top.equalTo(textLabelVolume).offset(25)
+            make.left.equalTo(view).offset(50)
+            make.right.equalTo(view).offset(-50)
+            make.centerX.equalTo(view)
+        }
     }
     
     @objc func buttonActionPlayOrPause(sender: UIButton!) {
