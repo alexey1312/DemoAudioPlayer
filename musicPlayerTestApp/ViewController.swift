@@ -76,13 +76,14 @@ class ViewController: UIViewController {
         self.view.addSubview(textField)
         textField.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 400, height: 50))
-            make.top.equalTo(view).offset(75)
+            make.top.equalTo(view).offset(25)
             make.left.equalTo(view).offset(25)
             make.right.equalTo(view).offset(-25)
         }
         
         //init textLabelProgress and progress
-        textLabelProgress.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textLabelProgress.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        textLabelProgress.backgroundColor = .none
         textLabelProgress.textAlignment = .center
         //        textLabelProgress.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         textLabelProgress.text = "0 : 0"
@@ -96,12 +97,12 @@ class ViewController: UIViewController {
         textLabelProgress.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 150, height: 25))
             make.centerX.equalTo(view)
-            make.centerY.equalTo(textField).offset(125)
+            make.centerY.equalTo(textField).offset(75)
         }
         
         self.view.addSubview(progressBar)
         progressBar.snp.makeConstraints { (make) in
-            make.top.equalTo(view).offset(250)
+            make.top.equalTo(view).offset(200)
             make.left.equalTo(view).offset(25)
             make.right.equalTo(view).offset(-25)
             make.centerX.equalTo(view)
@@ -110,7 +111,7 @@ class ViewController: UIViewController {
         //init buttonPlayOrPause
         buttonPlayOrPause.setBackgroundImage(imagePlay, for: .normal)
         buttonPlayOrPause.setTitleColor(.black, for: .normal)
-        buttonPlayOrPause.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        buttonPlayOrPause.backgroundColor = .none
         buttonPlayOrPause.addTarget(self, action: #selector(buttonActionPlayOrPause), for: .touchUpInside)
         self.view.addSubview(buttonPlayOrPause)
         buttonPlayOrPause.snp.makeConstraints { (make) in
@@ -122,7 +123,7 @@ class ViewController: UIViewController {
         //init buttonStop
         buttonStop.setBackgroundImage(imageStop, for: .normal)
         buttonStop.setTitleColor(.black, for: .normal)
-        buttonStop.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        buttonStop.backgroundColor = .none
         buttonStop.addTarget(self, action: #selector(buttonActionStop), for: .touchUpInside)
         self.view.addSubview(buttonStop)
         buttonStop.snp.makeConstraints { (make) in
@@ -134,7 +135,7 @@ class ViewController: UIViewController {
         //init buttonMute
         buttonMute.setBackgroundImage(imageVolumeUP, for: .normal)
         buttonMute.setTitleColor(.black, for: .normal)
-        buttonMute.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        buttonMute.backgroundColor = .none
         buttonMute.addTarget(self, action: #selector(buttonMuteAction), for: .touchUpInside)
         self.view.addSubview(buttonMute)
         buttonMute.snp.makeConstraints { (make) in
@@ -144,7 +145,8 @@ class ViewController: UIViewController {
         }
         
         //init textLabelVolume
-        textLabelVolume.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        textLabelVolume.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        textLabelVolume.backgroundColor = .none
         textLabelVolume.text = "Volume 15%"
         textLabelVolume.textAlignment = .center
         self.view.addSubview(textLabelVolume)
