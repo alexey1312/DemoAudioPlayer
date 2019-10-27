@@ -76,13 +76,13 @@ class ViewController: UIViewController {
         self.view.addSubview(textField)
         textField.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 400, height: 50))
-            make.top.equalTo(view).offset(25)
+            make.top.equalTo(view).offset(75)
             make.left.equalTo(view).offset(25)
             make.right.equalTo(view).offset(-25)
         }
         
         //init textLabelProgress and progress
-        textLabelProgress.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        textLabelProgress.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         textLabelProgress.backgroundColor = .none
         textLabelProgress.textAlignment = .center
         //        textLabelProgress.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
@@ -97,12 +97,12 @@ class ViewController: UIViewController {
         textLabelProgress.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 150, height: 25))
             make.centerX.equalTo(view)
-            make.centerY.equalTo(textField).offset(75)
+            make.centerY.equalTo(textField).offset(125)
         }
         
         self.view.addSubview(progressBar)
         progressBar.snp.makeConstraints { (make) in
-            make.top.equalTo(view).offset(200)
+            make.top.equalTo(view).offset(250)
             make.left.equalTo(view).offset(25)
             make.right.equalTo(view).offset(-25)
             make.centerX.equalTo(view)

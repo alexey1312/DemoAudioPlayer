@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		84276B7D2365E74000BA3363 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		8437FD6523608EF9007CCA83 /* Я.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Я.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8437FD6523608EF9007CCA83 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8437FD6823608EF9007CCA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8437FD6A23608EF9007CCA83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8437FD6C23608EF9007CCA83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		8437FD6623608EF9007CCA83 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8437FD6523608EF9007CCA83 /* Я.app */,
+				8437FD6523608EF9007CCA83 /* MusicPlayer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,7 +123,7 @@
 			);
 			name = musicPlayerTestApp;
 			productName = musicPlayerTestApp;
-			productReference = 8437FD6523608EF9007CCA83 /* Я.app */;
+			productReference = 8437FD6523608EF9007CCA83 /* MusicPlayer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -359,7 +359,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Aleksei-Kakoulin.musicPlayerTestApp";
-				PRODUCT_NAME = "Я";
+				PRODUCT_NAME = MusicPlayer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -381,7 +381,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Aleksei-Kakoulin.musicPlayerTestApp";
-				PRODUCT_NAME = "Я";
+				PRODUCT_NAME = MusicPlayer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
