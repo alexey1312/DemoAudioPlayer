@@ -13,7 +13,7 @@ import SnapKit
 class ViewController: UIViewController {
     
     var player = MusicPlayer()
-    
+
     //let URL
     let tasteURL = "https://ia802508.us.archive.org/5/items/testmp3testfile/mpthreetest.mp3"
     
@@ -32,12 +32,12 @@ class ViewController: UIViewController {
     let imageStop = UIImage(#imageLiteral(resourceName: "ic_stop_48px")).withTintColor(#colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1))
     let imageVolumeUP = UIImage(#imageLiteral(resourceName: "ic_volume_up_48px")).withTintColor(#colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1))
     let imageVolumeDOWN = UIImage(#imageLiteral(resourceName: "ic_volume_off_48px")).withTintColor(#colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1))
-    
+
     //texr field
     let textField = UITextField(frame: CGRect(x: 25, y: 100, width: 325, height: 50))
     
     //text progress
-    let textLabelProgress = UITextView(frame: CGRect(x: 170, y: 250, width: 200, height: 75))
+    let textLabelProgress = UITextView(frame: CGRect(x: 170, y: 250, width: 100, height: 75))
     
     //progress bar
     let progressBar = UIProgressView(frame: CGRect(x: 90, y: 280, width: 200, height: 75))
@@ -75,10 +75,10 @@ class ViewController: UIViewController {
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         self.view.addSubview(textField)
         textField.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 400, height: 50))
             make.top.equalTo(view).offset(75)
             make.left.equalTo(view).offset(25)
             make.right.equalTo(view).offset(-25)
-            make.bottom.equalTo(view).offset(-600)
         }
         
         //init textLabelProgress and progress
