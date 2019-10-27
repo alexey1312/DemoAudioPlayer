@@ -1,0 +1,19 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "0.11.1",
+  "iOS" : [
+    {
+      "name" : "SwiftAudio",
+      "hash" : "fb222df450173dcc5320853c38c07d382d706c4cc03a4e59b08b2fdee3b7ee10",
+      "swiftToolchainVersion" : "5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+    }
+  ]
+}
