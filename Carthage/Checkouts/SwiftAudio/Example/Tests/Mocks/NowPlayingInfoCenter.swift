@@ -12,7 +12,7 @@ import AVFoundation
 @testable import SwiftAudio
 
 class NowPlayingInfoCenter_Mock: NowPlayingInfoCenter {
-    
-    var nowPlayingInfo: [String : Any]? = nil
-    
+
+    var nowPlayingInfo: [String: Any]?
+
 }

@@ -5,9 +5,9 @@ import AVFoundation
 @testable import SwiftAudio
 
 class AVPlayerItemObserverTests: QuickSpec {
-    
+
     override func spec() {
-        
+
         describe("An AVPlayerItemObserver") {
             var observer: AVPlayerItemObserver!
             beforeEach {
@@ -20,13 +20,13 @@ class AVPlayerItemObserverTests: QuickSpec {
                         item = AVPlayerItem(url: URL(fileURLWithPath: Source.path))
                         observer.startObserving(item: item)
                     }
-                    
+
                     it("should exist", closure: {
                         expect(observer.observingItem).toEventuallyNot(beNil())
                     })
                 })
             })
-            
+
             describe("observing status", {
                 it("should not be observing", closure: {
                     expect(observer.isObserving).toEventuallyNot(beTrue())
@@ -47,9 +47,9 @@ class AVPlayerItemObserverTests: QuickSpec {
 }
 
 class AVPlayerItemObserverDelegateHolder: AVPlayerItemObserverDelegate {
-    
+
     var updateDuration: ((_ duration: Double) -> Void)?
-    
+
     func item(didUpdateDuration duration: Double) {
         updateDuration?(duration)
     }

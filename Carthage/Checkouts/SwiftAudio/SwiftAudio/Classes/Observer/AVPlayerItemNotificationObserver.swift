@@ -8,7 +8,6 @@
 import Foundation
 import AVFoundation
 
-
 protocol AVPlayerItemNotificationObserverDelegate: class {
     func itemDidPlayToEndTime()
 }
@@ -19,18 +18,18 @@ protocol AVPlayerItemNotificationObserverDelegate: class {
  Currently only listening for the AVPlayerItemDidPlayToEndTime notification.
  */
 class AVPlayerItemNotificationObserver {
-    
+
     private let notificationCenter: NotificationCenter = NotificationCenter.default
-    
+
     private(set) weak var observingItem: AVPlayerItem?
     weak var delegate: AVPlayerItemNotificationObserverDelegate?
-    
+
     private(set) var isObserving: Bool = false
-    
+
     deinit {
         stopObservingCurrentItem()
     }
-    
+
     /**
      Will start observing notifications from an item.
      
@@ -43,7 +42,7 @@ class AVPlayerItemNotificationObserver {
         isObserving = true
         notificationCenter.addObserver(self, selector: #selector(itemDidPlayToEndTime), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: item)
     }
-    
+
     /**
      Stop receiving notifications for the current item.
      */
@@ -55,9 +54,9 @@ class AVPlayerItemNotificationObserver {
         self.observingItem = nil
         self.isObserving = false
     }
-    
+
     @objc private func itemDidPlayToEndTime() {
         delegate?.itemDidPlayToEndTime()
     }
-    
+
 }

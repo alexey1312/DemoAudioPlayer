@@ -5,7 +5,7 @@ import SnapKit
 import UIKit
 import PlaygroundSupport
 
-class MyViewController : UIViewController {
+class MyViewController: UIViewController {
     override func loadView() {
         let view = UIView()
         view.backgroundColor = .white
@@ -13,7 +13,7 @@ class MyViewController : UIViewController {
         let label = UILabel()
         label.text = "Hello World!"
         label.textColor = .black
-        
+
         view.addSubview(label)
 
         label.snp.makeConstraints { (make) in

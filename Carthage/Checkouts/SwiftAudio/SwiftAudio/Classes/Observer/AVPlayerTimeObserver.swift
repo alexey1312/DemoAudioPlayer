@@ -18,20 +18,20 @@ protocol AVPlayerTimeObserverDelegate: class {
  Class for observing time-based events from the AVPlayer
  */
 class AVPlayerTimeObserver {
-    
+
     /// The time to use as start boundary time. Cannot be zero.
     private static let startBoundaryTime: CMTime = CMTime(value: 1, timescale: 1000)
-    
+
     var boundaryTimeStartObserverToken: Any?
     var periodicTimeObserverToken: Any?
-    
+
     weak var player: AVPlayer? {
         willSet {
             unregisterForBoundaryTimeEvents()
             unregisterForPeriodicEvents()
         }
     }
-    
+
     /// The frequence to receive periodic time events.
     /// Setting this to a new value will trigger a re-registering to the periodic events of the player.
     var periodicObserverTimeInterval: CMTime {
@@ -41,18 +41,18 @@ class AVPlayerTimeObserver {
             }
         }
     }
-    
+
     weak var delegate: AVPlayerTimeObserverDelegate?
-    
+
     init(periodicObserverTimeInterval: CMTime) {
         self.periodicObserverTimeInterval = periodicObserverTimeInterval
     }
-    
+
     deinit {
         unregisterForPeriodicEvents()
         unregisterForBoundaryTimeEvents()
     }
-    
+
     /**
      Will register for the AVPlayer BoundaryTimeEvents, to trigger start and complete events.
      */
@@ -66,7 +66,7 @@ class AVPlayerTimeObserver {
             self?.delegate?.audioDidStart()
         })
     }
-    
+
     /**
      Unregister from the boundary events of the player.
      */
@@ -77,7 +77,7 @@ class AVPlayerTimeObserver {
         player.removeTimeObserver(boundaryTimeStartObserverToken)
         self.boundaryTimeStartObserverToken = nil
     }
-    
+
     /**
      Start observing periodic time events.
      Will trigger unregisterForPeriodicEvents() first to avoid multiple subscriptions.
@@ -91,7 +91,7 @@ class AVPlayerTimeObserver {
             self.delegate?.timeEvent(time: time)
         })
     }
-    
+
     /**
      Unregister for periodic events.
      */
@@ -102,5 +102,5 @@ class AVPlayerTimeObserver {
         player.removeTimeObserver(periodicTimeObserverToken)
         self.periodicTimeObserverToken = nil
     }
-    
+
 }

@@ -12,58 +12,58 @@ import MediaPlayer
  An audio player that can keep track of a queue of AudioItems.
  */
 public class QueuedAudioPlayer: AudioPlayer {
-    
+
     let queueManager: QueueManager = QueueManager<AudioItem>()
-    
+
     /**
      Set wether the player should automatically play the next song when a song is finished.
      Default is `true`.
      */
     public var automaticallyPlayNextSong: Bool = true
-    
+
     public override var currentItem: AudioItem? {
         return queueManager.current
     }
-    
+
     /**
      The index of the current item.
      */
     public var currentIndex: Int {
         return queueManager.currentIndex
     }
-    
+
      /**
      Stops the player and clears the queue.
      */
     public override func stop() {
         super.stop()
     }
-    
+
     override func reset() {
         queueManager.clearQueue()
     }
-    
+
     /**
      All items currently in the queue.
      */
     public var items: [AudioItem] {
         return queueManager.items
     }
-    
+
     /**
      The previous items held by the queue.
      */
     public var previousItems: [AudioItem] {
         return queueManager.previousItems
     }
-    
+
     /**
      The upcoming items in the queue.
      */
     public var nextItems: [AudioItem] {
         return queueManager.nextItems
     }
-    
+
     /**
      Will replace the current item with a new one and load it into the player.
      
@@ -74,7 +74,7 @@ public class QueuedAudioPlayer: AudioPlayer {
         try super.load(item: item, playWhenReady: playWhenReady)
         queueManager.replaceCurrentItem(with: item)
     }
-    
+
     /**
      Add a single item to the queue.
      
@@ -86,12 +86,11 @@ public class QueuedAudioPlayer: AudioPlayer {
         if currentItem == nil {
             queueManager.addItem(item)
             try self.load(item: item, playWhenReady: playWhenReady)
-        }
-        else {
+        } else {
             queueManager.addItem(item)
         }
     }
-    
+
     /**
      Add items to the queue.
      
@@ -103,16 +102,15 @@ public class QueuedAudioPlayer: AudioPlayer {
         if currentItem == nil {
             queueManager.addItems(items)
             try self.load(item: currentItem!, playWhenReady: playWhenReady)
-        }
-        else {
+        } else {
             queueManager.addItems(items)
         }
     }
-    
+
     public func add(items: [AudioItem], at index: Int) throws {
         try queueManager.addItems(items, at: index)
     }
-    
+
     /**
      Step to the next item in the queue.
      
@@ -123,7 +121,7 @@ public class QueuedAudioPlayer: AudioPlayer {
         let nextItem = try queueManager.next()
         try self.load(item: nextItem, playWhenReady: true)
     }
-    
+
     /**
      Step to the previous item in the queue.
      */
@@ -132,7 +130,7 @@ public class QueuedAudioPlayer: AudioPlayer {
         let previousItem = try queueManager.previous()
         try self.load(item: previousItem, playWhenReady: true)
     }
-    
+
     /**
      Remove an item from the queue.
      
@@ -142,7 +140,7 @@ public class QueuedAudioPlayer: AudioPlayer {
     public func removeItem(at index: Int) throws {
         try queueManager.removeItem(at: index)
     }
-    
+
     /**
      Jump to a certain item in the queue.
      
@@ -155,7 +153,7 @@ public class QueuedAudioPlayer: AudioPlayer {
         let item = try queueManager.jump(to: index)
         try self.load(item: item, playWhenReady: playWhenReady)
     }
-    
+
     /**
      Move an item in the queue from one position to another.
      
@@ -166,28 +164,28 @@ public class QueuedAudioPlayer: AudioPlayer {
     func moveItem(fromIndex: Int, toIndex: Int) throws {
         try queueManager.moveItem(fromIndex: fromIndex, toIndex: toIndex)
     }
-    
+
     /**
      Remove all upcoming items, those returned by `next()`
      */
     public func removeUpcomingItems() {
         queueManager.removeUpcomingItems()
     }
-    
+
     /**
      Remove all previous items, those returned by `previous()`
      */
     public func removePreviousItems() {
         queueManager.removePreviousItems()
     }
-    
+
     // MARK: - AVPlayerWrapperDelegate
-    
+
     override func AVWrapperItemDidPlayToEndTime() {
         super.AVWrapperItemDidPlayToEndTime()
         if automaticallyPlayNextSong {
             try? self.next()
         }
     }
-    
+
 }

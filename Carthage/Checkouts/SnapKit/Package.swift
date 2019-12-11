@@ -22,7 +22,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 import PackageDescription
 
 let package = Package(
@@ -33,11 +32,11 @@ let package = Package(
         .tvOS(.v10)
     ],
     products: [
-        .library(name: "SnapKit", targets: ["SnapKit"]),
+        .library(name: "SnapKit", targets: ["SnapKit"])
     ],
     targets: [
         .target(name: "SnapKit", path: "Source"),
-        .testTarget(name: "SnapKitTests", dependencies: ["SnapKit"]),
+        .testTarget(name: "SnapKitTests", dependencies: ["SnapKit"])
     ],
     swiftLanguageVersions: [
         .v5

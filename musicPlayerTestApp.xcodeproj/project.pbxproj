@@ -115,7 +115,7 @@
 				8437FD6223608EF9007CCA83 /* Frameworks */,
 				8437FD6323608EF9007CCA83 /* Resources */,
 				8462F15523609942002C5780 /* Embed Frameworks */,
-				8462F15623609A18002C5780 /* ShellScript */,
+				8462F15623609A18002C5780 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -173,7 +173,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8462F15623609A18002C5780 /* ShellScript */ = {
+		8462F15623609A18002C5780 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -181,16 +181,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftAudio.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
