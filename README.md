@@ -1,4 +1,4 @@
-# 🎧 musicPlayerTestApp
+# 🎧 DemoAudioPlayer
 
 Simpler music player. Implemented basik functionality.
 
