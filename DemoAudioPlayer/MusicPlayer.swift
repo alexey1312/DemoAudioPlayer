@@ -17,6 +17,7 @@ class MusicPlayer {
         let playerItem = AVPlayerItem.init(url: url)
         _ = AVAudioSession.sharedInstance().outputVolume
         player = AVPlayer.init(playerItem: playerItem)
+        player.automaticallyWaitsToMinimizeStalling = false
         playAudioBackground()
     }
 

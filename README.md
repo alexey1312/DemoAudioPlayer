@@ -1,6 +1,5 @@
-# musicPlayerTestApp
+# 🎧 musicPlayerTestApp
 
-Simpler music player
+Simpler music player. Implemented basik functionality.
 
-![musicPlayerTestApp](https://github.com/alexey1312/musicPlayerTestApp/blob/master/Screen.png?raw=true)
-)
+<img src="https://github.com/alexey1312/musicPlayerTestApp/blob/master/Screen.png?raw=true" width="225" height="487.2">

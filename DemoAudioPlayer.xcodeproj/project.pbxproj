@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84276B7E2365E74000BA3363 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84276B7D2365E74000BA3363 /* GradientView.swift */; };
 		8437FD6923608EF9007CCA83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437FD6823608EF9007CCA83 /* AppDelegate.swift */; };
 		8437FD6B23608EF9007CCA83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437FD6A23608EF9007CCA83 /* SceneDelegate.swift */; };
 		8437FD6D23608EF9007CCA83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8437FD6C23608EF9007CCA83 /* ViewController.swift */; };
 		8437FD7023608EF9007CCA83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437FD6E23608EF9007CCA83 /* Main.storyboard */; };
 		8437FD7223608EFC007CCA83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8437FD7123608EFC007CCA83 /* Assets.xcassets */; };
 		8437FD7523608EFC007CCA83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8437FD7323608EFC007CCA83 /* LaunchScreen.storyboard */; };
-		8462F15323609942002C5780 /* SwiftAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8462F15223609942002C5780 /* SwiftAudio.framework */; };
-		8462F15423609942002C5780 /* SwiftAudio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8462F15223609942002C5780 /* SwiftAudio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		846821AA2364690A008A00F6 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846821A92364690A008A00F6 /* SnapKit.framework */; };
+		84C4A34D23A53D0F0023C486 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84C4A34C23A53D0F0023C486 /* Default-568h@2x.png */; };
+		84C4A34F23A53E9E0023C486 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 846821A92364690A008A00F6 /* SnapKit.framework */; };
+		84C4A35023A53E9E0023C486 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 846821A92364690A008A00F6 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84C4A35423A54DA70023C486 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C4A35323A54DA60023C486 /* GradientView.swift */; };
 		84F6A5B82361E726002808DE /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6A5B72361E726002808DE /* MusicPlayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8462F15523609942002C5780 /* Embed Frameworks */ = {
+		84C4A35123A53E9E0023C486 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8462F15423609942002C5780 /* SwiftAudio.framework in Embed Frameworks */,
+				84C4A35023A53E9E0023C486 /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,7 +35,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		84276B7D2365E74000BA3363 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		8437FD6523608EF9007CCA83 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8437FD6823608EF9007CCA83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8437FD6A23608EF9007CCA83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +45,8 @@
 		8437FD7623608EFC007CCA83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8462F15223609942002C5780 /* SwiftAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftAudio.framework; path = Carthage/Build/iOS/SwiftAudio.framework; sourceTree = "<group>"; };
 		846821A92364690A008A00F6 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		84C4A34C23A53D0F0023C486 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		84C4A35323A54DA60023C486 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		84F6A5B72361E726002808DE /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,8 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8462F15323609942002C5780 /* SwiftAudio.framework in Frameworks */,
-				846821AA2364690A008A00F6 /* SnapKit.framework in Frameworks */,
+				84C4A34F23A53E9E0023C486 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +65,8 @@
 		8437FD5C23608EF9007CCA83 = {
 			isa = PBXGroup;
 			children = (
-				8437FD6723608EF9007CCA83 /* musicPlayerTestApp */,
+				8437FD7623608EFC007CCA83 /* Info.plist */,
+				8437FD6723608EF9007CCA83 /* DemoAudioPlayer */,
 				8437FD6623608EF9007CCA83 /* Products */,
 				8462F15123609942002C5780 /* Frameworks */,
 			);
@@ -79,20 +80,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8437FD6723608EF9007CCA83 /* musicPlayerTestApp */ = {
+		8437FD6723608EF9007CCA83 /* DemoAudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
 				8437FD6823608EF9007CCA83 /* AppDelegate.swift */,
 				8437FD6A23608EF9007CCA83 /* SceneDelegate.swift */,
 				8437FD6C23608EF9007CCA83 /* ViewController.swift */,
 				84F6A5B72361E726002808DE /* MusicPlayer.swift */,
-				84276B7D2365E74000BA3363 /* GradientView.swift */,
+				84C4A35323A54DA60023C486 /* GradientView.swift */,
 				8437FD6E23608EF9007CCA83 /* Main.storyboard */,
 				8437FD7123608EFC007CCA83 /* Assets.xcassets */,
 				8437FD7323608EFC007CCA83 /* LaunchScreen.storyboard */,
-				8437FD7623608EFC007CCA83 /* Info.plist */,
+				84C4A34C23A53D0F0023C486 /* Default-568h@2x.png */,
 			);
-			path = musicPlayerTestApp;
+			path = DemoAudioPlayer;
 			sourceTree = "<group>";
 		};
 		8462F15123609942002C5780 /* Frameworks */ = {
@@ -107,21 +108,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8437FD6423608EF9007CCA83 /* musicPlayerTestApp */ = {
+		8437FD6423608EF9007CCA83 /* DemoAudioPlayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8437FD7923608EFC007CCA83 /* Build configuration list for PBXNativeTarget "musicPlayerTestApp" */;
+			buildConfigurationList = 8437FD7923608EFC007CCA83 /* Build configuration list for PBXNativeTarget "DemoAudioPlayer" */;
 			buildPhases = (
 				8437FD6123608EF9007CCA83 /* Sources */,
 				8437FD6223608EF9007CCA83 /* Frameworks */,
 				8437FD6323608EF9007CCA83 /* Resources */,
-				8462F15523609942002C5780 /* Embed Frameworks */,
 				8462F15623609A18002C5780 /* Run Script */,
+				84C4A35123A53E9E0023C486 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = musicPlayerTestApp;
+			name = DemoAudioPlayer;
 			productName = musicPlayerTestApp;
 			productReference = 8437FD6523608EF9007CCA83 /* MusicPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -141,7 +142,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8437FD6023608EF9007CCA83 /* Build configuration list for PBXProject "musicPlayerTestApp" */;
+			buildConfigurationList = 8437FD6023608EF9007CCA83 /* Build configuration list for PBXProject "DemoAudioPlayer" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -154,7 +155,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8437FD6423608EF9007CCA83 /* musicPlayerTestApp */,
+				8437FD6423608EF9007CCA83 /* DemoAudioPlayer */,
 			);
 		};
 /* End PBXProject section */
@@ -165,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8437FD7523608EFC007CCA83 /* LaunchScreen.storyboard in Resources */,
+				84C4A34D23A53D0F0023C486 /* Default-568h@2x.png in Resources */,
 				8437FD7223608EFC007CCA83 /* Assets.xcassets in Resources */,
 				8437FD7023608EF9007CCA83 /* Main.storyboard in Resources */,
 			);
@@ -201,7 +203,7 @@
 			files = (
 				8437FD6D23608EF9007CCA83 /* ViewController.swift in Sources */,
 				8437FD6923608EF9007CCA83 /* AppDelegate.swift in Sources */,
-				84276B7E2365E74000BA3363 /* GradientView.swift in Sources */,
+				84C4A35423A54DA70023C486 /* GradientView.swift in Sources */,
 				84F6A5B82361E726002808DE /* MusicPlayer.swift in Sources */,
 				8437FD6B23608EF9007CCA83 /* SceneDelegate.swift in Sources */,
 			);
@@ -353,12 +355,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = musicPlayerTestApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Aleksei-Kakoulin.musicPlayerTestApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Aleksei-Kakoulin.DemoAudioPlayer";
 				PRODUCT_NAME = MusicPlayer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -375,12 +377,12 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = musicPlayerTestApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Aleksei-Kakoulin.musicPlayerTestApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Aleksei-Kakoulin.DemoAudioPlayer";
 				PRODUCT_NAME = MusicPlayer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -390,7 +392,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8437FD6023608EF9007CCA83 /* Build configuration list for PBXProject "musicPlayerTestApp" */ = {
+		8437FD6023608EF9007CCA83 /* Build configuration list for PBXProject "DemoAudioPlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8437FD7723608EFC007CCA83 /* Debug */,
@@ -399,7 +401,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8437FD7923608EFC007CCA83 /* Build configuration list for PBXNativeTarget "musicPlayerTestApp" */ = {
+		8437FD7923608EFC007CCA83 /* Build configuration list for PBXNativeTarget "DemoAudioPlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8437FD7A23608EFC007CCA83 /* Debug */,
